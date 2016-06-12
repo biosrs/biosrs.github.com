@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+    <title></title>
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+        * { margin: 0; padding: 0 }
+        html { font-size: 20px; }
+        .box header { height: 2.1rem; background: #fafafa; border-top: 0.1rem solid #4bccae; }
+        header a:first-child { height: 2.1rem; width: 7.975rem; display: block; font-size: 0.725rem; font-family: 微软雅黑; position: relative; float: left; }
+        header a:first-child img { height: 1.475rem; margin-left: 1.45rem; margin-top: 0.45rem; }
+        header i { height: 1.225rem; margin-top: 0.475rem; width: 0.05rem; float: left; background: green; }
+        header a:first-child span { left: 3.375rem; top: 0.725rem; position: absolute; }
+        header a:last-child { height: 2.1rem; width: 7.975rem; display: block; font-size: 0.725rem; font-family: 微软雅黑; position: relative; float: left; }
+        header a:last-child img { height: 1.475rem; margin-left: 1.45rem; margin-top: 0.45rem; }
+        header i { last-child5rem; margin-top: 0.475rem; width: 0.05rem; float: left; background: green; }
+        header a:last-child span { left: 3.375rem; top: 0.725rem; position: absolute; }
+        .banner { background: url(img/banner.png); width: 16rem; height: 7.8rem; background-size: 100%; }
+        .contents .content { width: 14.85rem; height: 2rem; margin-left: 0.425rem; border-bottom: 0.05rem solid #CCC; line-height: 2rem; color: #3d3d3d; font-size: 0.725rem; padding-left: 0.35rem; font-family: 微软雅黑; }
+        .wenda .title { height: 2rem; border-top: 0.1rem solid #57c0af; border-bottom: 0.05rem solid #ccc; }
+        .wenda .title .title-left { height: 2rem; line-height: 2rem; padding-left: 0.775rem; font-size: 0.725rem; font-family: 微软雅黑; float: left; }
+        .wenda .title .title-icon { height: 1.475rem; width: 1.475rem; line-height: 2rem; float: right; background: url(img/wendalogo.png) no-repeat; background-size: 100%; margin-top: 0.25rem; margin-right: 0.725rem; }
+        .wenda .column { padding-left: 0.775rem; border-bottom: 0.05rem solid #ccc; overflow-hidden; }
+        .wenda .column a { float: left; height: 2.1rem; font-size: 0.725rem; font-family: 微软雅黑; line-height: 2.1rem; box-sizing: border-box; margin-right: 1.6rem; }
+        .wenda .column a.active { border-bottom: 0.1rem solid red; }
+        .wenda .maincontent { margin-top: 0.125rem; margin-bottom: 0.95rem; }
+        .wenda .maincontent .maincontent-top { height: 1.75rem; line-height: 1.75rem; padding-left: 0.775rem; font-size: 0.725rem; font-family: 微软雅黑; float: left; width: 100%; }
+        .wenda .maincontent .maincontent-left { height: 3.725rem; margin-left: 0.775rem; width: 5.175rem; background: url(img/wendapic.png) no-repeat; background-size: 100%; margin-top: 0.1rem; float: left }
+        .wenda .maincontent .maincontent-right { float: left; margin-left: 0.675rem; width: 8.375rem; font-size: 0.725rem; line-height: 1.25rem; color: #999 }
+        .wenda .content { width: 14.85rem; height: 2rem; margin-left: 0.425rem; border-top: 0.05rem solid #CCC; line-height: 2rem; color: #3d3d3d; font-size: 0.725rem; padding-left: 0.35rem; font-family: 微软雅黑; }
+        .back { width: 100%; height: 3rem; background: #fafafa;border-top:2px solid #ccc; }
+        .back a { height: 3rem; margin: 0 auto; display: block; margin-left: 5.5rem; }
+        .back a i { background: url(img/backtotop.png) no-repeat; height: 1.45rem; width: 1.45rem; margin-top: 0.925rem; display: block; background-size: 100%; float: left; }
+        .back a p { height: 3rem; line-height: 3rem; margin-left: 0.45rem; float: left; color: #3d3d3d; font-size: 0.725rem; font-family: 微软雅黑; }
+
+        footer{height:3.75rem;width:100%;background:#262626; position:relative;}
+        footer a:first-child {width: 8rem; height:100%; display:block; float:left;}
+        footer a:first-child i{width:1.475rem;height:1.175rem;float:left;margin-top:1.375rem;margin-left:2.025rem;background:url(img/bottompc.png) no-repeat;background-size:100%;}
+        footer a:first-child span{line-height:3.75rem;height:3.75rem;float:left;margin-left:0.6rem;font-size: 0.725rem; font-family: 微软雅黑;color:#b8b8b8}
+        footer em {float:left;height: 1.9rem; margin-top: 0.875rem; width: 0.05rem; background: #999;display:block; }
+        footer a:last-child {height:100%; display:block; float:left;}
+        footer a:last-child i{width:0.65rem;height:1.15rem;float:left;margin-top:1.375rem;margin-left:2.025rem;background:url(img/bottomphone.png) no-repeat;background-size:100%;}
+        footer a:last-child span{line-height:3.75rem;height:3.75rem;float:left;margin-left:0.6rem;font-size: 0.725rem; font-family: 微软雅黑;color:#b8b8b8; }
+    </style>
+    <script>
+        window.onload = window.onresize = function () {
+            document.documentElement.style.fontSize = 20 / 320 * document.documentElement.clientWidth + 'px';
+        };
+    </script>
+</head>
+<body>
+<section class="box">
+    <header>
+        <!--<section class="userlogin"></section>-->
+        <a href="javascript:;"><img src="img/loginlogo.png"><span>用户登录</span></a>
+        <i></i>
+        <a href="javascript:;"><img src="img/registerlogo.png"><span>用户注册</span></a>
+    </header>
+    <section class="banner"></section>
+    <section class="contents">
+        <section class="content">
+            解毒科学观点时,你应该知道的20个...
+        </section>
+        <section class="content">
+            运动出点汗,更好来谈判
+        </section>
+        <section class="content">
+            "关掉"旧习惯,本性不难移
+        </section>
+        <section class="content">
+            男女搭配,破案不累
+        </section>
+        <section class="content">
+            腰窝,性感无误?
+        </section>
+        <section class="content">
+            男女搭配,破案不累
+        </section>
+        <section class="content">
+            腰窝,性感无误?
+        </section>
+    </section>
+    <section class="wenda">
+        <section class="title clear">
+            <section class="title-left">热门问答</section>
+            <section class="title-icon"></section>
+        </section>
+        <section class="column clear">
+            <a href="javascript:;" class="active">科技</a>
+            <a href="javascript:;">生活</a>
+            <a href="javascript:;">人文</a>
+            <a href="javascript:;">自然</a>
+        </section>
+        <section class="maincontent clear">
+            <section class="maincontent-top">如果把探测器撞到彗星上会怎么样?</section>
+            <section class="maincontent-left"></section>
+            <section class="maincontent-right">这是问答内容这是问答内容这是问答内容这是问答内容这是问答内容</section>
+        </section>
+        <section class="content">
+            运动出点汗,更好来谈判
+        </section>
+        <section class="content">
+            运动出点汗,更好来谈判
+        </section>
+        <section class="content">
+            运动出点汗,更好来谈判
+        </section>
+        <section class="content">
+            运动出点汗,更好来谈判
+        </section>
+    </section>
+    <section class="wenda">
+        <section class="title clear">
+            <section class="title-left">热门问答</section>
+            <section class="title-icon"></section>
+        </section>
+        <section class="column clear">
+            <a href="javascript:;" class="active">科技</a>
+            <a href="javascript:;">生活</a>
+            <a href="javascript:;">人文</a>
+            <a href="javascript:;">自然</a>
+        </section>
+        <section class="maincontent clear">
+            <section class="maincontent-top">如果把探测器撞到彗星上会怎么样?</section>
+            <section class="maincontent-left"></section>
+            <section class="maincontent-right">这是问答内容这是问答内容这是问答内容这是问答内容这是问答内容</section>
+        </section>
+        <section class="content">
+            运动出点汗,更好来谈判
+        </section>
+        <section class="content">
+            运动出点汗,更好来谈判
+        </section>
+        <section class="content">
+            运动出点汗,更好来谈判
+        </section>
+        <section class="content">
+            运动出点汗,更好来谈判
+        </section>
+    </section>
+    <section class="back">
+        <a href="javascript:;"><i></i>
+
+            <p>回到顶部</p></a>
+    </section>
+    <footer>
+        <a><i></i><span>PC版</span></a>
+        <em></em>
+        <a><i></i><span>移动应用</span></a>
+    </footer>
+</section>
+</body>
+</html>

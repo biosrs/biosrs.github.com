@@ -1,0 +1,15 @@
+/*默认样式*/
+*{ margin:0; padding:0;line-height:100%; font-size:12px;}
+a{ text-decoration:none;}
+b,strong{ font-weight:normal}
+ul li, ol li{list-style:none;}
+i,em{ font-style:normal}
+img{ vertical-align:top;}
+input{ outline:none; border:none; background:none;}
+input,textarea,select{ margin:0; }					
+input,textarea{ padding:0;}
+input::-ms-clear{display:none;}
+
+/*清浮动*/
+.clearfix:after{ content:""; display:block; clear:both}
+input{ -outline:none;}

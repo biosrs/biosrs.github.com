@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        body{height:100%; overflow:hidden; background:black;}
+        .box{width:700px; height:400px; margin:100px auto; position:relative;}
+        .box span{ position:absolute; -webkit-transform-style:preserve-3d; -webkit-transform:perspective(800px) rotateY(0deg);}
+        span .front{ position:absolute; top:0; left:0; width:100%; height:100%; background:url(book/1.jpg) no-repeat; -webkit-transform:translateZ(1px);}
+        span .back{ position:absolute; top:0; left:0; width:100%; height:100%; background:url(book/2.jpg) no-repeat; -webkit-transform:translateZ(-1px) scale(-1,1);}
+    </style>
+    <script>
+        window.onload=function(){
+            var oBox = document.querySelector('.box');
+            var R = 8;
+            var C = 14;
+            for(var i=0;i<C;i++){
+                for(var j = 0;j<R;j++){
+                    var oS = document.createElement('span');
+                    oS.innerHTML='<em class="front"></em><em class="back"></em>';
+                    oS.style.width = oBox.offsetWidth/C+'px';
+                    oS.style.height = oBox.offsetHeight/R+'px';
+                    oBox.appendChild(oS);
+                    oS.style.left = i*oS.offsetWidth+'px';
+                    oS.style.top = j*oS.offsetHeight+'px';
+                    var oFront = oS.children[0];
+                    var oBack = oS.children[1];
+                    oFront.style.backgroundPosition = -oS.offsetLeft+'px '+-oS.offsetTop+'px';
+                    oBack.style.backgroundPosition = -oS.offsetLeft+'px '+-oS.offsetTop+'px';
+
+                    oS.r = j;
+                    oS.c = i;
+                }
+            }
+
+            var aS = oBox.children;
+            var iNow = 0;
+            var bOk = false;
+            oBox.onclick=function(){
+                if(bOk)return;
+                bOk = true;
+                iNow++;
+                var len = aS.length;
+                for(var i=0;i<len;i++){
+                    aS[i].style.WebkitTransition = '1s all ease '+(aS[i].r+aS[i].c)*100+'ms';
+                    aS[i].style.WebkitTransform = 'perspective(800px) rotateY(180deg)';
+                }
+
+                function tranEnd(){
+                    aS[len-1].removeEventListener('transitionend',tranEnd,false);
+                    for(var i=0;i<len;i++){
+                        aS[i].style.WebkitTransition = 'none';
+                        aS[i].style.WebkitTransform = 'perspective(800px) rotateY(0deg)';
+                        var oFront = aS[i].children[0];
+                        var oBack = aS[i].children[1];
+                        oFront.style.backgroundImage = 'url(book/'+(iNow%3+1)+'.jpg)';
+                        oBack.style.backgroundImage = 'url(book/'+((iNow+1)%3+1)+'.jpg)';
+                    }
+                    bOk = false;
+                }
+                aS[len-1].addEventListener('transitionend',tranEnd,false);
+            };
+        };
+    </script>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

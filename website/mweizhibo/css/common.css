@@ -1,0 +1,41 @@
+@charset "utf-8";
+html{/*禁用iphone字体调整*/-webkit-text-size-adjust:none;}
+*{margin:0;padding:0;list-style:none;font-family:"微软雅黑";}
+/*清浮动*/
+.clearfix:before,
+.clearfix:after{content:"";display:table;}
+.clearfix:after{clear:both;}
+.clearfix {*zoom:1;}
+.fl{float:left;}
+.fr{float: right;}
+.gWidth{width:16rem;margin-left:auto;margin-right:auto;box-sizing:border-box;}
+/*头部*/
+.header{}
+.header img{width:100%;display:block;height:18.55rem;}
+/*活动介绍*/
+.aboutShowColor{width:12.3rem;height:auto;background-color:#FFEA00;padding:1rem;margin-left:auto;margin-right:auto;border-radius:0.125rem;}
+.aboutShowColor h3{color:#000;font-size:0.9rem;text-align:center;line-height:1.5;}
+.aboutShowColor ul{line-height:1.1rem;margin:0 auto;margin-top:0.5rem;margin-bottom:1.3rem;height:5rem;border-bottom:0.05rem dashed #000;}
+.aboutShowColor ul li{font-size:0.75rem;color:#D7191D;font-weight:bold;padding-left:1.55rem;height:1.275rem;}
+.aboutShowColor ul li:nth-child(1){background:url(../img/clock.png) left center no-repeat;background-size:1.1rem 1.1rem;margin-bottom:0.25rem;}
+.aboutShowColor ul li:nth-child(2){background:url(../img/gps.png) left center no-repeat;background-size:1.1rem 1.275rem;}
+
+
+
+.showTit{background:url(../img/aboutSHOWbG.png) left top no-repeat;width:5.325rem;height:1.325rem;margin-bottom:0.5rem;margin-left:auto;margin-right:auto;background-size:5.325rem 1.325rem;}
+.showTit h4{font-size:0.75rem;height:1.325rem;color:#FFF;line-height:1.325rem;margin-left:1.55rem;}
+.showAboutFont p{font-size:0.7rem;color:#000;text-indent:2em;text-align:justify; text-justify:inter-ideograph;line-height:1.5;}
+/*现场直播标题*/
+.liveTit{background:url(../img/live_newBg.png) left top no-repeat;background-size:5.325rem 1.325rem;width:5.325rem;height:1.325rem;margin-left:auto;margin-right:auto;margin-top:1.2rem;margin-bottom:1.2rem;}
+.liveTit h4{font-size:0.75rem;height:1.325rem;color:#FFF;line-height:1.325rem;margin-left:1.65rem;}
+/*现场直播内容展示*/
+.showContent{width:13.7rem;border-left:0.075rem solid #D4D4D4;margin-left:auto;margin-right:auto;height:auto;padding-left:0.6rem;}
+.showContentBox{margin-bottom:0.7rem;}
+.showContentBoxTit{position:relative;height:auto;width:100%;}
+.showContentBoxTit img{position:absolute;left:-0.4rem;top:0;width:0.4rem;height:1.5rem;display:block;}
+.showContentBoxTit h4{height:auto;line-height:1.5rem;background-color:#F1F1F1;border-radius: 0.2rem;font-size:0.7rem;font-weight:bold;padding-left:0.5rem;border-bottom:0.1rem solid #C2C2C2;}
+.Timershow{height:1.9rem;line-height:1.9rem;}
+.Timershow h5{color:#000;font-size:0.7rem;background:url(../img/live_clock.png) left center no-repeat;padding-left:1.5rem;background-size:0.75rem 0.75rem;}
+.showContentFonts img{width:13.5rem;display:block;margin:0.25rem 0;margin-left:auto;margin-right:auto;border-radius:0.125rem;overflow:hidden;}
+.showContentFonts p{font-size:0.65rem;color:#000;text-indent:2em;text-align:justify;text-justify:inter-ideograph;line-height:2;}
+

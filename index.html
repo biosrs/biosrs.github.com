@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个人站</title>
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+        html, body, #box { height: 100%; width: 100%; overflow-y: hidden; }
+        section { height: 100%; position: relative; }
+        section:nth-child(1) { background: #564F75 }
+        section:nth-child(2) { background: #000 }
+        section:nth-child(3) { background: #9774CB }
+        section:nth-child(4) { background: #CECF9F; }
+        .title { width: 100%; background: -webkit-linear-gradient(rgba(58, 125, 150, .8), rgba(41, 91, 142, 0)); position: fixed; left: 0; top: 0; height: 80px; z-index: 1; -webkit-transition: .8s all ease; }
+        /*.title { width: 100%; background: rgba(58, 125, 150, .8); position: absolute; left: 0; top: 0; height: 60px; }*/
+        .title .titleline { margin: 0 auto; width: 960px; height: 120px; -webkit-transition: 0.8s all ease; }
+        .title .titleline a { display: block; float: left; text-align: center; width: 180px; height: 120px; line-height: 120px; font-size: 30px; color: #b1b1b1; font-family: 微软雅黑; -webkit-transition: .8s all ease; }
+        .title .titleline a:nth-child(3) { width: 240px; text-indent: -999rem; }
+        .title .titleline a i { display: block; margin: 0 auto; height: 120px; width: 120px; background: url(img/head.jpg) no-repeat; border-radius: 50%; background-size: 100%; opacity: 0.6; -webkit-transition: .8s all ease; }
+        .title2 { background: rgba(58, 125, 150, 1); height: 40px; }
+        .title2 .titleline { width: 700px; height: 40px; }
+        .title2 .titleline a { display: block; float: left; text-align: center; width: 130px; height: 40px; line-height: 40px; font-size: 20px; color: #15B18E; font-family: 微软雅黑; font-weight: bold; }
+        .title2 .titleline a:nth-child(3) { width: 180px; text-indent: -999rem; }
+        .title2 .titleline a i { display: block; margin: 0 auto; height: 40px; width: 40px; background: url(img/head.jpg) no-repeat; border-radius: 50%; background-size: 100%; opacity: 0.8; -webkit-transition: .8s all ease; }
+        .left { width: 50px; height: 100%; position: absolute; z-index: 99; }
+        .left .leftul { position: absolute; top: 50%; margin-top: -60px; border-left: 1px solid #999; border-top: 1px solid #999; width: 50px; }
+        .left .leftul li { height: 50px; width: 50px; border-right: 1px solid #999; border-bottom: 1px solid #999; text-align: center; line-height: 50px; background: rgba(99, 99, 99, 0.5); color: white; }
+        .left .leftul #left-lastli { background: yellow; z-index: 3; position: absolute; opacity: 0.5; left: 0; top: 0; }
+        .name { width: 200px; height: 130px; position: absolute; top: 50%; left: 50%; margin-top: -45px; margin-left: -100px; font-family: 微软雅黑; -webkit-transition: 1s all ease; }
+        .name em:nth-child(1) { opacity: 0.2; color: #fff; font-size: 50px; height: 80px; width: 200px; line-height: 80px; text-align: center; -webkit-transition: 2s all ease; display: block; margin: 0 auto; }
+        .name em:nth-child(2) { opacity: 0.2; color: #fff; font-size: 20px; height: 50px; width: 200px; line-height: 50px; text-align: center; -webkit-transition: 2s all ease; display: block; margin: 0 auto; }
+        .name i:nth-child(3) { display: block; height: 3px; width: 0px; position: absolute; top: 0; right: 0; background: #ff5849; -webkit-transition: 3s all ease; }
+        .name i:nth-child(4) { display: block; height: 3px; width: 0px; position: absolute; bottom: 0; left: 0; background: #ff5849; -webkit-transition: 3s all ease; }
+        .name2 { }
+        .name2 em:nth-child(1) { opacity: 1; }
+        .name2 em:nth-child(2) { opacity: 1; }
+        .name2 i:nth-child(3) { width: 200px; }
+        .name2 i:nth-child(4) { width: 200px; }
+        .arrowdown { position: absolute; left: 50%; bottom: 30px; height: 30px; width: 30px; margin-left: -15px; background: url(img/arrowdown.png); background-size: 100%; -webkit-transition: 1s all ease; border-radius: 50%; }
+        .arrowdown:hover { box-shadow: 0 10px 5px #000, inset 0 0 30px #fff; }
+        .star { width: 100px; height: 100px; background: #cc0000; box-shadow: 0 0 10px #fff; font-family: 微软雅黑; font-size: 18px; color: white; text-align: center; border-radius: 50%; position: absolute; opacity: 0.8; line-height: 100px; }
+        .star1 { width: 120px; height: 120px; left: 300px; top: 350px; line-height: 120px; }
+        .star2 { width: 120px; height: 120px; right: 250px; top: 350px; line-height: 120px; }
+        .star3 { width: 100px; height: 100px; left: 200px; top: 200px; line-height: 100px; }
+        .star4 { width: 100px; height: 100px; right: 150px; top: 150px; line-height: 100px; }
+        .staticbox { height: 400px; width: 1000px; position: absolute; left: 50%; top: 50%; overflow: hidden; margin-top: -200px; margin-left: -500px; }
+        .staticbox .staticul { width: 2000px; height: 400px; position: absolute; }
+        .staticbox .staticul > li { width: 1000px; height: 400px; float: left; text-align: center; line-height: 400px; position: relative; }
+        .staticbox i { width: 50px; height: 50px; position: absolute; background: #CCC; opacity: 0.3; -webkit-transition: 0.5s all ease; z-index: 99; }
+        .staticbox i:hover { opacity: 1 }
+        .staticbox i:nth-child(1) { left: 0; top: 50%; margin-top: -25px; background: url(img/arrowright.png); -webkit-transform: rotate(180deg); }
+        .staticbox i:nth-child(2) { right: 0; top: 50%; margin-top: -25px; background: url(img/arrowright.png) }
+        .roundul { width: 1000px; height: 400px; position: absolute; top: 0; left: 0; -webkit-transform-style: preserve-3d; -webkit-transform: perspective(800px) rotateX(0deg) rotateY(0deg); }
+        .roundul li { position: absolute; top: 0; left: 0; -webkit-transform: rotateY(0deg) translateZ(0px); width: 1000px; height: 400px; float: left; text-align: center; line-height: 400px; }
+        .roundul li a { display:inline-block; }
+        .roundul li img { box-shadow: 0 0 10px #fff; margin-top: 100px; }
+        .box3d { width: 100%; height: 100%; position: relative; -webkit-transform-style: preserve-3d; overflow: hidden; }
+        .box3d li { position: absolute; top: 50px; left: 300px; width: 400px; height: 300px; text-align: center; line-height: 300px; background: #399; opacity: 0; font-size: 30px; -webkit-transition: 1s all ease; }
+        .box3d .l2 { opacity: 0; -webkit-transform: perspective(800px) translate(-260px, 0) rotateY(60deg); }
+        .box3d .l1 { opacity: 0.75; -webkit-transform: perspective(800px) translate(-200px, 0) rotateY(60deg); }
+        .box3d .cur { opacity: 1; -webkit-transform: perspective(800px) translateZ(50px); z-index: 55; box-shadow: 0 0 2px #fff; border-radius: 5px; }
+        .box3d .r1 { opacity: 0.75; -webkit-transform: perspective(800px) translate(200px, 0) rotateY(-60deg); }
+        .box3d .r2 { opacity: 0; -webkit-transform: perspective(800px) translate(260px, 0) rotateY(-60deg); }
+        .prev3d { position: absolute; top: 50px; left: 300px; width: 400px; height: 300px; z-index: 66; -webkit-transform: perspective(800px) translate(-200px, 0) rotateY(60deg); }
+        .next3d { position: absolute; top: 50px; left: 300px; width: 400px; height: 300px; z-index: 66; -webkit-transform: perspective(800px) translate(200px, 0) rotateY(-60deg); }
+        .curr3d { position: absolute; top: 50px; left: 300px; width: 400px; height: 300px; -webkit-transform: perspective(800px) translateZ(50px); z-index: 68; }
+        #wallul { width: 840px; height: 420px; position: absolute; top: 50%; left: 50%; margin-left: -420px; margin-top: -210px; }
+        #wallul li { width: 200px; height: 200px; float: left; background: #ee6655; position: relative; overflow: hidden; margin: 5px; }
+        #wallul li span { width: 200px; height: 200px; line-height: 200px; text-align: center; font-size: 20px; color: white; font-family: 微软雅黑; background: black; opacity: .4; position: absolute; left: -200px; }
+        #myself { margin-top: 150px; margin-left: 150px; float: left; }
+        #myself li { padding-top: 20px; padding-bottom: 25px; padding-left: 20px; border-left: 3px solid #555; position: relative; }
+        #myself li:after { position: absolute; top: 30px; left: -9px; width: 5px; height: 5px; border: #CECF9F solid 5px; border-radius: 50%; background-color: #fff; content: ""; margin-top: 2px; margin-bottom: 2px; }
+        #myself li:hover:after { background-color: orange; border: #f7f7f7 solid 2px; width: 11px; height: 11px; }
+        #myself li span { font-size: 35px; color: #0000cc; line-height: 35px; font-family: 微软雅黑; opacity: 0; }
+    </style>
+    <script src="js/addWheel.js"></script>
+    <script src="js/move7.js"></script>
+    <script>
+window.onload=function(){var j=0;var f=document.getElementById("box");var a=document.querySelectorAll("section");var k=document.querySelectorAll(".arrowdown");var g=document.getElementById("title");var h=document.getElementById("name");var b=document.getElementById("left-lastli");var l=document.getElementById("leftul").children;var d=document.querySelectorAll(".star");var m=document.getElementById("myself");var o=["欢迎访问我的空间","如果您有兴趣,请联系我","邮箱:315863573@qq.com","电话:15901171059"];h.classList.add("name2");(function(){var s=4;for(var r=0;r<s;r++){var q=document.getElementById("a"+r);q.index=r;q.onclick=function(){if(isInScroll){return}j=this.index;if(j==0){g.classList.remove("title2")}else{g.classList.add("title2")}if(j==3){n(m)}moveScroll(f,j*a[0].offsetHeight,function(){if(j==3){p(m,o)}});moveLeftNav(b,j*b.offsetHeight)}}})();(function(){for(var q=0;q<d.length;q++){(function(i){d[i].viberNeeded=true;var u=0;var r=0;var s=rnd0or1()?1:-1;var t=rnd0or1()?1:-1;setInterval(function(){var z=rnd0or1()?true:false;var w=rnd0or1()?true:false;var v=0,A=0;if(z){v=d[i].offsetLeft+s;u++;if(u==15){s*=-1;u=0}}else{if(w){A=d[i].offsetTop+t;r++;if(r==15){t*=-1;r=0}}}if(d[i].viberNeeded){d[i].style.WebkitTransition=".4s all ease";setTimeout(function(){d[i].style.WebkitTransform="translate("+s+"px,"+t+"px)"},3)}else{d[i].style.WebkitTransition="none";d[i].style.WebkitTransform=""}},5)})(q)}})();(function(){for(var q=0;q<d.length;q++){d[q].index=q;d[q].onmouseover=function(){this.viberNeeded=false;var s=0;var i=1;var r=this;clearInterval(d[this.index].timer);this.timer=setInterval(function(){s+=i;r.style.WebkitTransition="none";r.style.boxShadow=" 0 0 10px #fff, inset 0 0 0 "+s+"px red";r.style.opacity=0.5+(s/r.offsetWidth);if(s>=r.offsetWidth/2){clearInterval(r.timer)}},16)};d[q].onmouseout=function(){var r=0;var i=1;if(this.timer){clearInterval(this.timer)}this.viberNeeded=true;this.style.boxShadow=" 0 0 10px #fff";this.style.opacity=0.8}}})();for(var c=0;c<k.length;c++){k[c].index=c;k[c].onclick=function(){if(isInScroll){return}j=this.index+1;if(j==3){n(m)}moveScroll(f,j*a[0].offsetHeight,function(){if(j==3){p(m,o)}})}}for(var c=0;c<l.length-1;c++){(function(i){l[c].onclick=function(){if(isInScroll){return}j=i;if(j==3){n(m)}moveScroll(f,j*a[0].offsetHeight,function(){if(j==3){p(m,o)}});moveLeftNav(b,j*b.offsetHeight)}})(c)}function e(i){if(isInScroll){return}if(i&&j!=a.length-1){j++}else{if(!i&&j!=0){j--}else{return}}if(j==0){g.classList.remove("title2")}else{g.classList.add("title2")}if(j==3){n(m)}moveScroll(f,j*a[0].offsetHeight,function(){if(j==3){p(m,o)}});moveLeftNav(b,j*b.offsetHeight)}addWheel(f,e);(function(){var z=[{site:"website/mjuhuasuan/juhuasuan.html",src:"img2/1.jpg"},{site:"website/mguoke/guoke.html",src:"img2/2.jpg"},{site:"http://hm114.com.cn/hmydyx/hongma/web/index.html",src:"img2/3.jpg"},{site:"http://hm114.com.cn/hmydyx/zhiwen/web/index.html",src:"img2/4.jpg"},{site:"http://hm114.com.cn/hmydyx/huiliu/web/index.html",src:"img2/5.jpg"},{site:"http://hm114.com.cn/hmydyx/huazhiteng/web/index.html",src:"img2/6.jpg"},{site:"website/mweizhibo/index.html",src:"img2/7.jpg"}];var D=document.querySelector(".staticul");var G=document.querySelectorAll(".staticul li");var H=document.querySelectorAll(".staticbox i");for(var w=0;w<H.length;w++){H[w].index=w;H[w].onclick=function(){D.style.left=-this.index*G[0].offsetWidth+"px"}}var v=document.querySelector(".roundul");var B=z.length;for(var w=0;w<B;w++){var u=document.createElement("li");u.innerHTML='<a href="'+z[w].site+'" target="_blank"><img src="'+z[w].src+'" width="133" height="200" /></a>';v.appendChild(u)}var r=v.children;for(var w=0;w<B;w++){r[w].style.WebkitTransition="1s all ease "+(B-w)*300+"ms";(function(i){setTimeout(function(){r[i].style.WebkitTransform="rotateY("+360/B*i+"deg) translateZ(350px)"},1)})(w)}var C=0;var A=0;var t=0;var q=0;var F=0;var E=0;var s=null;v.onmousedown=function(y){clearInterval(s);var x=y.pageX-E;var i=y.pageY-F;document.onmousemove=function(I){E=I.pageX-x;F=I.pageY-i;v.style.WebkitTransform="perspective(800px) rotateX("+-F/5+"deg) rotateY("+E/5+"deg)";C=I.pageX-t;A=I.pageY-q;t=I.pageX;q=I.pageY};document.onmouseup=function(){document.onmousemove=null;document.onmouseup=null;clearInterval(s);s=setInterval(function(){C*=0.95;A*=0.95;E+=C;F+=A;v.style.WebkitTransform="perspective(800px) rotateX("+-F/5+"deg) rotateY("+E/5+"deg)";if(Math.abs(C)<1){C=0}if(Math.abs(A)<1){A=0}if(C==0&&A==0){clearInterval(s)}},30)};return false}})();(function(){var z=document.querySelector(".prev3d");var s=document.querySelector(".next3d");var x=document.querySelector(".curr3d");var w=document.querySelector(".box3d");var q=w.children;var u=[{src:"img2/pc0.jpg",link:"website/pcxiaomi/xiaomi.html"},{src:"img2/pc1.jpg",link:"http://zswhcyrc.3223.net/"},{src:"img2/pc2.jpg",link:"http://www.lhcmw.com/"},{src:"img2/pc3.jpg",link:"http://tshuilong.com/"},{src:"img2/pc4.jpg",link:"http://www.dyhlmd.com/"}];var y=[];for(var v=0;v<q.length;v++){y[v]=q[v].className}t();
+var r=false;s.onclick=function(){if(r){return}r=true;y.unshift(y.pop());t()};z.onclick=function(){if(r){return}r=true;y.push(y.shift());t()};function t(){for(var C=0;C<q.length;C++){q[C].className=y[C];var D=q[C].querySelector("img");D.src=u[C].src;if(y[C]=="cur"){x.href=u[C].link}}var A=document.querySelector(".cur");function B(){A.removeEventListener("transitionend",B,false);r=false}A.addEventListener("transitionend",B,false)}})();(function(){function q(y){var w=y.children[0];function x(z){return z*180/Math.PI}function i(B,A){var z=B.offsetLeft+B.offsetWidth/2+u-A.clientX;var C=B.offsetTop+B.offsetHeight/2+t-A.clientY;return Math.round((x(Math.atan2(C,z))+180)/90)%4}y.onmouseover=function(C){var A=C||event;var z=A.fromElement||A.relatedTarget;if(y.contains(z)){return}var B=i(y,A);switch(B){case 0:w.style.left="200px";w.style.top="0px";break;case 1:w.style.left="0px";w.style.top="200px";break;case 2:w.style.left="-200px";w.style.top="0px";break;case 3:w.style.left="0px";w.style.top="-200px";break}move(w,{left:0,top:0},{duration:300})};y.onmouseout=function(B){var z=B||event;var C=z.toElement||z.relatedTarget;if(y.contains(C)){return}var A=i(y,z);switch(A){case 0:move(w,{left:200,top:0},{duration:300});break;case 1:move(w,{left:0,top:200},{duration:300});break;case 2:move(w,{left:-200,top:0},{duration:300});break;case 3:move(w,{left:0,top:-200},{duration:300});break}}}var r=document.getElementById("wallul");var u=r.offsetLeft;var t=r.offsetTop;var v=r.children;for(var s=0;s<v.length;s++){q(v[s])}})();function p(r,t){for(var u=0;u<t.length;u++){var x=t[u];var w=document.createElement("li");for(var s=0;s<x.length;s++){var v=document.createElement("span");v.innerHTML=x.charAt(s);w.appendChild(v)}r.appendChild(w)}var q=r.getElementsByTagName("span");for(var u=0;u<q.length;u++){(function(i){q[i].timer=setTimeout(function(){move(q[i],{opacity:1})},200*u)})(u)}}function n(r){var u=r.children;var q=r.getElementsByTagName("span");for(var s=0;s<q.length;s++){q[s]=null;clearTimeout(q[s].timer)}var t=u.length;for(var s=0;s<t;s++){r.removeChild(u[0])}}};
+    </script>
+</head>
+<body>
+<div id="title" class="title">
+    <div class="titleline">
+        <a href="javascript:;" id="a0">简介</a>
+        <a href="javascript:;" id="a1">作品</a>
+        <a><i></i></a>
+        <a href="javascript:;" id="a2">效果</a>
+        <a href="javascript:;" id="a3">联系</a>
+    </div>
+</div>
+<div id="left" class="left">
+    <ul id="leftul" class="leftul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li id="left-lastli"></li>
+    </ul>
+</div>
+<div id="box">
+    <section>
+        <div id="name" class="name">
+            <em>我是张楠</em>
+            <em>欢迎访问我的页面</em>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="star star1">Javascript</div>
+        <div class="star star2">HTML/CSS</div>
+        <div class="star star3">HTML5</div>
+        <div class="star star4">ASP.NET</div>
+        <div class="arrowdown"></div>
+    </section>
+    <section>
+        <div class="staticbox">
+            <i></i>
+            <i></i>
+            <ul class="staticul">
+                <li>
+                    <ul class="roundul"></ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="prev3d"></a>
+                    <a href="javascript:;" class="next3d"></a>
+                    <a href="javascript:;" class="curr3d" target="_blank"></a>
+                    <ul class="box3d">
+                        <li class="cur">
+                            <img src="" width="100%" height="100%"/>
+                        </li>
+                        <li class="r1"><img src="" width="100%" height="100%"/></li>
+                        <li class="r2"><img src="" width="100%" height="100%"/></li>
+                        <li class="l2"><img src="" width="100%" height="100%"/></li>
+                        <li class="l1"><img src="" width="100%" height="100%"/></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="arrowdown"></div>
+    </section>
+    <section>
+        <ul id="wallul">
+            <li>
+                <span><a href="style/time.html" target="_blank">时钟效果</a></span>
+                <img src="img/style_time.jpg" width="200" height="200">
+            </li>
+            <li>
+                <span><a href="style/book.html" target="_blank">翻书效果</a></span>
+                <img src="img/style_book.jpg" width="200" height="200">
+            </li>
+            <li>
+                <span><a href="style/boom.html" target="_blank">爆炸效果</a></span>
+                <img src="img/style_boom.jpg" width="200" height="200">
+            </li>
+            <li>
+                <span><a href="style/reverse.html" target="_blank">翻转效果</a></span>
+                <img src="img/style_reverse.jpg" width="200" height="200">
+            </li>
+            <li>
+                <span><a href="style/windows.html" target="_blank">Windows屏保</a></span>
+                <img src="img/style_windows.jpg" width="200" height="200">
+            </li>
+            <li>
+                <span><a href="style/progress.html" target="_blank">进度条效果</a></span>
+                <img src="img/style_progress.jpg" width="200" height="200">
+            </li>
+            <li>
+                <span><a href="style/button.html" target="_blank">按钮效果</a></span>
+                <img src="img/style_button.jpg" width="200" height="200">
+            </li>
+            <li>
+                <span><a href="style/brouncemove.html" target="_blank">小球下落效果</a></span>
+                <img src="img/style_brouncemove.jpg" width="200" height="200">
+            </li>
+        </ul>
+        <div class="arrowdown"></div>
+    </section>
+    <section>
+        <ul id="myself"></ul>
+    </section>
+</div>
+</body>
+</html>

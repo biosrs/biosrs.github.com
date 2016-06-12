@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        body{background:#000; text-align:center;}
+        canvas{background:#fff;}
+    </style>
+    <script>
+        function d2a(n){
+            return n*Math.PI/180;
+        }
+        window.onload=function(){
+            var oC = document.getElementById('c1');
+            var gd = oC.getContext('2d');
+
+            var cx = oC.width/2,
+                    cy = oC.height/2,
+                    r = 100;
+
+            var lg = gd.createLinearGradient(300,200,600,600);
+            lg.addColorStop(0,'red');
+            lg.addColorStop(0.5,'blue');
+            lg.addColorStop(1,'green');
+
+            var d = 0;
+            var timer = setInterval(function(){
+                d++;
+
+                gd.clearRect(0,0,oC.width,oC.height);
+
+
+                var str = (d/360*100).toFixed(2)+'%';
+                gd.font = '30px 微软雅黑';
+                gd.textAlign = 'center';
+                gd.textBaseline = 'middle';
+                gd.fillStyle = lg;
+                gd.fillText(str,cx,cy);
+
+                drawArc(0,d,lg);
+
+                if(d==360){
+                    clearInterval(timer);
+                }
+            },16);
+
+
+            function drawArc(s,e,c){
+                c = c||'black';
+                gd.beginPath();
+                gd.arc(cx,cy,r,d2a(s),d2a(e),false);
+                gd.lineWidth = 20;
+                gd.strokeStyle = c;
+                gd.stroke();
+            }
+        };
+    </script>
+</head>
+
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>

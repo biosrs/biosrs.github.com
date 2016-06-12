@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--务必不能写错,重要的事情说三遍,逗号分割逗号分割,逗号分割-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+        *{margin:0;padding:0; list-style:none; text-decoration: none;}
+        html{font-size:20px;}
+        .box header{height:2.5rem; background:-webkit-linear-gradient(#fff, #ebebeb); text-align:center; }
+        header .back-btn{position:absolute;left:0.55rem; top:0.55rem; background:url(img/back-btn.png) no-repeat; text-indent: -99rem;background-size:100%;width:3.05rem;height:1.45rem;}
+        header img{margin-top:0.775rem;width:3.7rem; }
+
+        .banner {overflow:hidden; position:relative;width:16rem; height:7.45rem; }
+        .banner ul{width:80rem;}
+        .banner ul li{float:left;width:16rem;height:6.675rem;}
+        .banner ul li img{width:100%}
+        .banner ol{ position:absolute; left:50%; bottom:0; width:2.5rem; margin-left:-1.25rem;}
+        .banner ol li{float:left; width:0.25rem; height:0.25rem; border-radius:50%; background:#a9a9a9; margin:0 0.125rem;}
+        .banner ol li.active{background:#ff4300;}
+
+        .nav ul{display:-webkit-box; margin-left:0.425rem;}
+        .nav ul li{-webkit-box-flex: 1; height:4.05rem; position:relative; }
+        .nav ul li img{width:2rem; margin-left:0.9rem; margin-top:1.025rem;}
+        .nav ul li span{font-size:0.575rem;font-family:微软雅黑; display:block; text-align:center; margin-top:0.425rem;}
+
+        .rm-box{margin-left:0.5rem;border-bottom:0.1rem solid #dcdcdc; margin-top:0.525rem;margin-right:0.5rem;margin-bottom:0.275rem; margin-top:1.05rem;}
+        .rm-box span{font-size:0.65rem;color:#000; font-family:微软雅黑; display:block;margin:0.525rem 0;  }
+        .rm-box span:first-child{border-left:0.1rem solid #d51938;padding-left:0.45rem; float:left;}
+        .rm-box span:last-child{float:right; margin-right:0.075rem; }
+
+        .rm-details{margin-left:0.5rem;width:15rem;height:3rem;margin-top:0.5rem;display:-webkit-box;}
+        .rm-details section:nth-child(1){height:100%;width:1.5rem;font-size:0.875rem;line-height:3rem;color:white;text-align:center;}
+        .rm-details section:nth-child(2){height:100%;width:4.5rem;}
+        .rm-details section:nth-child(2) img{height:100%;width:4.5rem;}
+        .rm-details section:nth-child(3){height:100%; -webkit-box-flex: 1; background:#f4f4f4;}
+        .rm-details section:nth-child(3) p:nth-child(1){margin-top:0.75rem;margin-left:0.55rem;line-height:0.925rem;color:#999; font-size:0.55rem;font-family:微软雅黑;width:5rem;float:left;}
+        .rm-details section:nth-child(3) p:nth-child(2){height:100%;line-height:3rem;width:2rem;padding-right:0.75rem;background:url(img/arrowright.png) no-repeat right center;float:right;color:#d51938; margin-right:0.15rem; font-size:0.625rem;font-family:微软雅黑; text-align:right}
+        .rm-more{background:#f4f4f4; text-align:center; height:2rem; width:15rem; line-height:2rem;font-size:0.625rem;color:#999;font-family:微软雅黑; margin-top: 0.5rem;margin-left:0.5rem;}
+
+        .sp-box{height:8.8rem;margin-left:0.5rem; margin-top:0.5rem;}
+        .sp-box a{display:block;float:left;}
+        .sp-box a img{display:block;height:8.8rem;width:3.75rem;}
+        .sp-box a.txt{display:block;height:2.2rem;width:3.75rem;border-top:1px solid #CCC;border-right:1px solid #CCC;line-height: 2.2rem;color:#999;box-sizing: border-box; text-align:center;font-family:微软雅黑; }
+        .sp-box a.last{border-bottom:1px solid #CCC;}
+        .sp-box a.ok{ color:red;}
+
+        .phone-box{height:4rem;margin-left:0.5rem; margin-top:0.5rem;display:-webkit-box;border-top:0.025rem solid #ccc; border-left:0.025rem solid #ccc;width:15rem;box-sizing:border-box;}
+        .phone-box a{display:block;height:4rem;-webkit-box-flex: 1; box-sizing: border-box; border-right:0.025rem solid #ccc; border-bottom:0.025rem solid #ccc;text-align:center;}
+        .phone-box a img{display:block;height:1.05rem;margin-left:2rem; margin-top:0.825rem;}
+        .phone-box a span{display:block; font-size:0.55rem;color:#666;box-sizing:border-box; font-family:微软雅黑;margin-top:0.875rem;}
+
+        footer {height:2.2rem; margin-top:0.5rem;background:#f8f8f8;margin-bottom:0.5rem;line-height:2.2rem; font-family:微软雅黑;padding-left:0.15rem;font-size:0.65rem;position:relative;}
+        footer span{margin:0 0.6rem 0;}
+        /*???? i标签默认高度100%*/
+        footer i{position:absolute;right:0;padding-right:1.0rem;background:url(img/arrowup.png) no-repeat right center;margin-right:0.5rem;}
+    </style>
+    <script>
+        window.onload=window.onresize = function() {
+            document.documentElement.style.fontSize = 20 / 320 * document.documentElement.clientWidth +'px';
+        };
+    </script>
+</head>
+<body>
+<section class="box">
+    <header>
+        <a class="back-btn" href="javascript:;">返回</a>
+        <img src="img/logo.png"/>
+    </header>
+    <section class="banner">
+        <ul>
+            <li><img src="img/banner1.png"></li>
+            <li><img src="img/banner1.png"></li>
+            <li><img src="img/banner1.png"></li>
+            <li><img src="img/banner1.png"></li>
+            <li><img src="img/banner1.png"></li>
+        </ul>
+        <ol>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </section>
+    <nav>
+        <section class="nav">
+            <ul>
+                <li><a href="javascript:;"><img src="img/nav1.png"><span>商品</span></a></li>
+                <li><a href="javascript:;"><img src="img/nav2.png"><span>生活</span></a></li>
+                <li><a href="javascript:;"><img src="img/nav3.png"><span>品牌</span></a></li>
+                <li><a href="javascript:;"><img src="img/nav4.png"><span>聚宝盆</span></a></li>
+            </ul>
+        </section>
+        <section class="nav">
+            <ul>
+                <li><a href="javascript:;"><img src="img/nav5.png"><span>聚名品</span></a></li>
+                <li><a href="javascript:;"><img src="img/nav6.png"><span>聚家装</span></a></li>
+                <li><a href="javascript:;"><img src="img/nav7.png"><span>聚透</span></a></li>
+                <li><a href="javascript:;"><img src="img/nav8.png"><span>客户端</span></a></li>
+            </ul>
+        </section>
+    </nav>
+    <section class="rm-box clear">
+        <span>聚划算热卖排行</span>
+        <span>TOP10</span>
+    </section>
+    <section class="rm-details">
+        <section style="background:#e00202;">1</section>
+        <section><img src="img/rmdetails1.png"></section>
+        <section>
+            <p>已售68423<br>2.3折&nbsp;￥<span style="text-decoration:line-through;">299</span></p>
+            <p>￥51</p>
+        </section>
+    </section>
+    <section class="rm-details">
+        <section style="background:#e00202;">2</section>
+        <section><img src="img/rmdetails2.png"></section>
+        <section>
+            <p>已售68423<br>2.3折&nbsp;￥<span style="text-decoration:line-through;">299</span></p>
+            <p>￥77</p>
+        </section>
+    </section>
+    <section class="rm-details">
+        <section style="background:#e00202;">3</section>
+        <section><img src="img/rmdetails3.png"></section>
+        <section>
+            <p>已售68423<br>2.3折&nbsp;￥<span style="text-decoration:line-through;">299</span></p>
+            <p>￥51</p>
+        </section>
+    </section>
+    <section class="rm-details">
+        <section style="background:#e00202;">4</section>
+        <section><img src="img/rmdetails4.png"></section>
+        <section>
+            <p>已售68423<br>2.3折&nbsp;￥<span style="text-decoration:line-through;">299</span></p>
+            <p>￥99</p>
+        </section>
+    </section>
+    <section class="rm-details">
+        <section style="background:#e00202;">5</section>
+        <section><img src="img/rmdetails5.png"></section>
+        <section>
+            <p>已售68423<br>2.3折&nbsp;￥<span style="text-decoration:line-through;">269</span></p>
+            <p>￥98</p>
+        </section>
+    </section>
+    <section class="rm-details">
+        <section style="background:#e00202;">6</section>
+        <section><img src="img/rmdetails6.png"></section>
+        <section>
+            <p>已售68423<br>2.3折&nbsp;￥<span style="text-decoration:line-through;">299</span></p>
+            <p>￥38</p>
+        </section>
+    </section>
+    <section class="rm-details">
+        <section style="background:#e00202;">7</section>
+        <section><img src="img/rmdetails7.png"></section>
+        <section>
+            <p>已售68423<br>2.3折&nbsp;￥<span style="text-decoration:line-through;">299</span></p>
+            <p>￥51</p>
+        </section>
+    </section>
+    <section class="rm-details">
+        <section style="background:#e00202;">8</section>
+        <section><img src="img/rmdetails8.png"></section>
+        <section>
+            <p>已售68423<br>2.3折&nbsp;￥<span style="text-decoration:line-through;">299</span></p>
+            <p>￥51</p>
+        </section>
+    </section>
+    <section class="rm-more">更多划算 逛起来</section>
+    <section class="sp-box">
+        <a href="javascript:;"><img src="img/sp1.png"></a>
+        <a class="txt">运动</a>
+        <a class="txt">电器</a>
+        <a class="txt">母婴</a>
+        <a class="txt ok">数码</a>
+        <a class="txt">百货</a>
+        <a class="txt">家具</a>
+        <a class="txt">美妆</a>
+        <a class="txt ok">食品</a>
+        <a class="txt">配饰</a>
+        <a class="txt last">鞋包</a>
+        <a class="txt last">服饰</a>
+        <a class="txt last">更多</a>
+    </section>
+    <section class="rm-more">精彩商品 逛起来</section>
+    <section class="sp-box">
+        <a href="javascript:;"><img src="img/sp2.png"></a>
+        <a class="txt">运动</a>
+        <a class="txt">电器</a>
+        <a class="txt">母婴</a>
+        <a class="txt ok">数码</a>
+        <a class="txt">百货</a>
+        <a class="txt">家具</a>
+        <a class="txt">美妆</a>
+        <a class="txt ok">食品</a>
+        <a class="txt">配饰</a>
+        <a class="txt last">鞋包</a>
+        <a class="txt last">服饰</a>
+        <a class="txt last">更多</a>
+    </section>
+    <section class="rm-more">品牌折扣 嗨起来</section>
+    <section class="sp-box">
+        <a href="javascript:;"><img src="img/sp3.png"></a>
+        <a class="txt">运动</a>
+        <a class="txt">电器</a>
+        <a class="txt">母婴</a>
+        <a class="txt ok">数码</a>
+        <a class="txt">百货</a>
+        <a class="txt">家具</a>
+        <a class="txt">美妆</a>
+        <a class="txt ok">食品</a>
+        <a class="txt">配饰</a>
+        <a class="txt last">鞋包</a>
+        <a class="txt last">服饰</a>
+        <a class="txt last">更多</a>
+    </section>
+    <section class="rm-more">品质生活 逛起来</section>
+    <section class="phone-box">
+        <a href="javascript:;"><img src="img/applelogo.png"><span>IOS客户端</span></a>
+        <a href="javascript:;"><img src="img/andiodlogo.png"><span>安卓客户端</span></a>
+        <a href="javascript:;"><img src="img/contectlogo.png"><span>意见反馈</span></a>
+    </section>
+    <footer>
+        <span>登录</span><span>注册</span><i>TOP</i>
+    </footer>
+</section>
+</body>
+</html>
