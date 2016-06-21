@@ -76,8 +76,485 @@
     <script src="js/addWheel.js"></script>
     <script src="js/move7.js"></script>
     <script>
-window.onload=function(){var j=0;var f=document.getElementById("box");var a=document.querySelectorAll("section");var k=document.querySelectorAll(".arrowdown");var g=document.getElementById("title");var h=document.getElementById("name");var b=document.getElementById("left-lastli");var l=document.getElementById("leftul").children;var d=document.querySelectorAll(".star");var m=document.getElementById("myself");var o=["欢迎访问我的空间","如果您有兴趣,请联系我","邮箱:315863573@qq.com","电话:15901171059"];h.classList.add("name2");(function(){var s=4;for(var r=0;r<s;r++){var q=document.getElementById("a"+r);q.index=r;q.onclick=function(){if(isInScroll){return}j=this.index;if(j==0){g.classList.remove("title2")}else{g.classList.add("title2")}if(j==3){n(m)}moveScroll(f,j*a[0].offsetHeight,function(){if(j==3){p(m,o)}});moveLeftNav(b,j*b.offsetHeight)}}})();(function(){for(var q=0;q<d.length;q++){(function(i){d[i].viberNeeded=true;var u=0;var r=0;var s=rnd0or1()?1:-1;var t=rnd0or1()?1:-1;setInterval(function(){var z=rnd0or1()?true:false;var w=rnd0or1()?true:false;var v=0,A=0;if(z){v=d[i].offsetLeft+s;u++;if(u==15){s*=-1;u=0}}else{if(w){A=d[i].offsetTop+t;r++;if(r==15){t*=-1;r=0}}}if(d[i].viberNeeded){d[i].style.WebkitTransition=".4s all ease";setTimeout(function(){d[i].style.WebkitTransform="translate("+s+"px,"+t+"px)"},3)}else{d[i].style.WebkitTransition="none";d[i].style.WebkitTransform=""}},5)})(q)}})();(function(){for(var q=0;q<d.length;q++){d[q].index=q;d[q].onmouseover=function(){this.viberNeeded=false;var s=0;var i=1;var r=this;clearInterval(d[this.index].timer);this.timer=setInterval(function(){s+=i;r.style.WebkitTransition="none";r.style.boxShadow=" 0 0 10px #fff, inset 0 0 0 "+s+"px red";r.style.opacity=0.5+(s/r.offsetWidth);if(s>=r.offsetWidth/2){clearInterval(r.timer)}},16)};d[q].onmouseout=function(){var r=0;var i=1;if(this.timer){clearInterval(this.timer)}this.viberNeeded=true;this.style.boxShadow=" 0 0 10px #fff";this.style.opacity=0.8}}})();for(var c=0;c<k.length;c++){k[c].index=c;k[c].onclick=function(){if(isInScroll){return}j=this.index+1;if(j==3){n(m)}moveScroll(f,j*a[0].offsetHeight,function(){if(j==3){p(m,o)}})}}for(var c=0;c<l.length-1;c++){(function(i){l[c].onclick=function(){if(isInScroll){return}j=i;if(j==3){n(m)}moveScroll(f,j*a[0].offsetHeight,function(){if(j==3){p(m,o)}});moveLeftNav(b,j*b.offsetHeight)}})(c)}function e(i){if(isInScroll){return}if(i&&j!=a.length-1){j++}else{if(!i&&j!=0){j--}else{return}}if(j==0){g.classList.remove("title2")}else{g.classList.add("title2")}if(j==3){n(m)}moveScroll(f,j*a[0].offsetHeight,function(){if(j==3){p(m,o)}});moveLeftNav(b,j*b.offsetHeight)}addWheel(f,e);(function(){var z=[{site:"website/mjuhuasuan/juhuasuan.html",src:"img2/1.jpg"},{site:"website/mguoke/guoke.html",src:"img2/2.jpg"},{site:"http://hm114.com.cn/hmydyx/hongma/web/index.html",src:"img2/3.jpg"},{site:"http://hm114.com.cn/hmydyx/zhiwen/web/index.html",src:"img2/4.jpg"},{site:"http://hm114.com.cn/hmydyx/huiliu/web/index.html",src:"img2/5.jpg"},{site:"http://hm114.com.cn/hmydyx/huazhiteng/web/index.html",src:"img2/6.jpg"},{site:"website/mweizhibo/index.html",src:"img2/7.jpg"}];var D=document.querySelector(".staticul");var G=document.querySelectorAll(".staticul li");var H=document.querySelectorAll(".staticbox i");for(var w=0;w<H.length;w++){H[w].index=w;H[w].onclick=function(){D.style.left=-this.index*G[0].offsetWidth+"px"}}var v=document.querySelector(".roundul");var B=z.length;for(var w=0;w<B;w++){var u=document.createElement("li");u.innerHTML='<a href="'+z[w].site+'" target="_blank"><img src="'+z[w].src+'" width="133" height="200" /></a>';v.appendChild(u)}var r=v.children;for(var w=0;w<B;w++){r[w].style.WebkitTransition="1s all ease "+(B-w)*300+"ms";(function(i){setTimeout(function(){r[i].style.WebkitTransform="rotateY("+360/B*i+"deg) translateZ(350px)"},1)})(w)}var C=0;var A=0;var t=0;var q=0;var F=0;var E=0;var s=null;v.onmousedown=function(y){clearInterval(s);var x=y.pageX-E;var i=y.pageY-F;document.onmousemove=function(I){E=I.pageX-x;F=I.pageY-i;v.style.WebkitTransform="perspective(800px) rotateX("+-F/5+"deg) rotateY("+E/5+"deg)";C=I.pageX-t;A=I.pageY-q;t=I.pageX;q=I.pageY};document.onmouseup=function(){document.onmousemove=null;document.onmouseup=null;clearInterval(s);s=setInterval(function(){C*=0.95;A*=0.95;E+=C;F+=A;v.style.WebkitTransform="perspective(800px) rotateX("+-F/5+"deg) rotateY("+E/5+"deg)";if(Math.abs(C)<1){C=0}if(Math.abs(A)<1){A=0}if(C==0&&A==0){clearInterval(s)}},30)};return false}})();(function(){var z=document.querySelector(".prev3d");var s=document.querySelector(".next3d");var x=document.querySelector(".curr3d");var w=document.querySelector(".box3d");var q=w.children;var u=[{src:"img2/pc0.jpg",link:"website/pcxiaomi/xiaomi.html"},{src:"img2/pc1.jpg",link:"http://zswhcyrc.3223.net/"},{src:"img2/pc2.jpg",link:"http://www.lhcmw.com/"},{src:"img2/pc3.jpg",link:"http://tshuilong.com/"},{src:"img2/pc4.jpg",link:"http://www.dyhlmd.com/"},{src: "img2/pc5.jpg", link: "http://www.muzuowang.com/"}];var y=[];for(var v=0;v<q.length;v++){y[v]=q[v].className}t();
-var r=false;s.onclick=function(){if(r){return}r=true;y.unshift(y.pop());t()};z.onclick=function(){if(r){return}r=true;y.push(y.shift());t()};function t(){for(var C=0;C<q.length;C++){q[C].className=y[C];var D=q[C].querySelector("img");D.src=u[C].src;if(y[C]=="cur"){x.href=u[C].link}}var A=document.querySelector(".cur");function B(){A.removeEventListener("transitionend",B,false);r=false}A.addEventListener("transitionend",B,false)}})();(function(){function q(y){var w=y.children[0];function x(z){return z*180/Math.PI}function i(B,A){var z=B.offsetLeft+B.offsetWidth/2+u-A.clientX;var C=B.offsetTop+B.offsetHeight/2+t-A.clientY;return Math.round((x(Math.atan2(C,z))+180)/90)%4}y.onmouseover=function(C){var A=C||event;var z=A.fromElement||A.relatedTarget;if(y.contains(z)){return}var B=i(y,A);switch(B){case 0:w.style.left="200px";w.style.top="0px";break;case 1:w.style.left="0px";w.style.top="200px";break;case 2:w.style.left="-200px";w.style.top="0px";break;case 3:w.style.left="0px";w.style.top="-200px";break}move(w,{left:0,top:0},{duration:300})};y.onmouseout=function(B){var z=B||event;var C=z.toElement||z.relatedTarget;if(y.contains(C)){return}var A=i(y,z);switch(A){case 0:move(w,{left:200,top:0},{duration:300});break;case 1:move(w,{left:0,top:200},{duration:300});break;case 2:move(w,{left:-200,top:0},{duration:300});break;case 3:move(w,{left:0,top:-200},{duration:300});break}}}var r=document.getElementById("wallul");var u=r.offsetLeft;var t=r.offsetTop;var v=r.children;for(var s=0;s<v.length;s++){q(v[s])}})();function p(r,t){for(var u=0;u<t.length;u++){var x=t[u];var w=document.createElement("li");for(var s=0;s<x.length;s++){var v=document.createElement("span");v.innerHTML=x.charAt(s);w.appendChild(v)}r.appendChild(w)}var q=r.getElementsByTagName("span");for(var u=0;u<q.length;u++){(function(i){q[i].timer=setTimeout(function(){move(q[i],{opacity:1})},200*u)})(u)}}function n(r){var u=r.children;var q=r.getElementsByTagName("span");for(var s=0;s<q.length;s++){q[s]=null;clearTimeout(q[s].timer)}var t=u.length;for(var s=0;s<t;s++){r.removeChild(u[0])}}};
+        window.onload = function () {
+            var iNow = 0;
+            var oBox = document.getElementById('box');
+            var aSection = document.querySelectorAll('section');
+            var aArrowD = document.querySelectorAll('.arrowdown');
+            var oTitle = document.getElementById('title');
+            var oName = document.getElementById('name');
+            var oLeftLi = document.getElementById('left-lastli');
+            var aLeftLi = document.getElementById('leftul').children;
+            var aStar = document.querySelectorAll('.star');
+            var oUl = document.getElementById('myself');
+            var selfstr = ['欢迎访问我的空间', '如果您有兴趣,请联系我', '邮箱:315863573@qq.com', '电话:15901171059'];
+            oName.classList.add('name2');
+
+            ;
+            (function () {
+                var length = 4;
+                for (var i = 0; i < length; i++) {
+                    var a = document.getElementById('a' + i);
+                    a.index = i;
+                    a.onclick = function () {
+                        if (isInScroll) {
+                            return;
+                        }
+                        iNow = this.index;
+                        if (iNow == 0) {
+                            oTitle.classList.remove('title2');
+                        } else {
+                            oTitle.classList.add('title2');
+                        }
+                        if (iNow == 3) {
+                            clearSelfInfo(oUl);
+                        }
+                        moveScroll(oBox, iNow * aSection[0].offsetHeight, function () {
+                            if (iNow == 3) {
+                                displaySelfInfo(oUl, selfstr);
+                            }
+                        });
+                        moveLeftNav(oLeftLi, iNow * oLeftLi.offsetHeight);
+                    }
+                }
+            })();
+            //            ;(function(){
+            //                for(var i = 0; i<aStar.length; i++) {
+            //                    (function(index){
+            //                        var n = 0;
+            //                        var n2 = 0;
+            //                        var iSpeed =  rnd0or1() ? 1:-1;
+            //                        var iSpeed2 =  rnd0or1() ? 1:-1;
+            //                        setInterval(function(){
+            //                            var h = rnd0or1() ? true:false;
+            //                            var t = rnd0or1() ? true:false;
+            //                            if(h){
+            //                                aStar[index].style.left = aStar[index].offsetLeft + iSpeed + 'px';
+            //                                n++;
+            //                                if(n == 15){
+            //                                    iSpeed *= -1;
+            //                                    n=0;
+            //                                }
+            //                            }
+            //                            else if(t){
+            //                                aStar[index].style.top = aStar[index].offsetTop+ iSpeed2 + 'px';
+            //                                n2++;
+            //                                if(n2 == 15){
+            //                                    iSpeed2 *= -1;
+            //                                    n2=0;
+            //                                }
+            //                            }
+            //                        },120);
+            //                    })(i);
+            //                }
+            //            })();
+            ;
+            (function () {
+                for (var i = 0; i < aStar.length; i++) {
+                    (function (index) {
+                        aStar[index].viberNeeded = true;
+                        var n = 0;
+                        var n2 = 0;
+                        var iSpeed = rnd0or1() ? 1 : -1;
+                        var iSpeed2 = rnd0or1() ? 1 : -1;
+                        setInterval(function () {
+                            var h = rnd0or1() ? true : false;
+                            var t = rnd0or1() ? true : false;
+                            var x = 0, y = 0;
+                            if (h) {
+                                x = aStar[index].offsetLeft + iSpeed;
+                                n++;
+                                if (n == 15) {
+                                    iSpeed *= -1;
+                                    n = 0;
+                                }
+                            }
+                            else if (t) {
+                                y = aStar[index].offsetTop + iSpeed2;
+                                //aStar[index].style.top = aStar[index].offsetTop + iSpeed2 + 'px';
+                                n2++;
+                                if (n2 == 15) {
+                                    iSpeed2 *= -1;
+                                    n2 = 0;
+                                }
+                            }
+                            if (aStar[index].viberNeeded) {
+                                aStar[index].style.WebkitTransition = '.4s all ease';
+                                setTimeout(function () {
+                                    aStar[index].style.WebkitTransform = 'translate(' + iSpeed + 'px,' + iSpeed2 + 'px)';
+                                }, 3);
+                            } else {
+                                aStar[index].style.WebkitTransition = 'none';
+                                aStar[index].style.WebkitTransform = '';
+                            }
+                        }, 5);
+                    })(i);
+                }
+            })();
+            ;
+            (function () {
+                for (var i = 0; i < aStar.length; i++) {
+                    aStar[i].index = i;
+                    aStar[i].onmouseover = function () {
+                        this.viberNeeded = false;
+                        var n = 0;
+                        var fx = 1;
+                        var _this = this;
+                        clearInterval(aStar[this.index].timer);
+                        this.timer = setInterval(function () {
+                            n += fx;
+                            _this.style.WebkitTransition = 'none';
+                            _this.style.boxShadow = ' 0 0 10px #fff, inset 0 0 0 ' + n + 'px red';
+                            _this.style.opacity = 0.5 + (n / _this.offsetWidth);
+                            if (n >= _this.offsetWidth / 2) {
+                                clearInterval(_this.timer);
+                            }
+                        }, 16);
+                    };
+                    aStar[i].onmouseout = function () {
+                        var n = 0;
+                        var fx = 1;
+                        if (this.timer) {
+                            clearInterval(this.timer);
+                        }
+                        this.viberNeeded = true;
+                        this.style.boxShadow = ' 0 0 10px #fff';
+                        this.style.opacity = 0.8;
+                    };
+                }
+            })();
+
+            for (var i = 0; i < aArrowD.length; i++) {
+                aArrowD[i].index = i;
+                aArrowD[i].onclick = function () {
+                    if (isInScroll) {
+                        return;
+                    }
+                    iNow = this.index + 1;
+                    if (iNow == 3) {
+                        clearSelfInfo(oUl);
+                    }
+                    moveScroll(oBox, iNow * aSection[0].offsetHeight, function () {
+                        if (iNow == 3) {
+                            displaySelfInfo(oUl, selfstr);
+                        }
+                    });
+                };
+            }
+            for (var i = 0; i < aLeftLi.length - 1; i++) {
+                (function (index) {
+                    aLeftLi[i].onclick = function () {
+                        if (isInScroll) {
+                            return;
+                        }
+                        iNow = index;
+                        if (iNow == 3) {
+                            clearSelfInfo(oUl);
+                        }
+                        moveScroll(oBox, iNow * aSection[0].offsetHeight, function () {
+                            if (iNow == 3) {
+                                displaySelfInfo(oUl, selfstr);
+                            }
+                        });
+                        moveLeftNav(oLeftLi, iNow * oLeftLi.offsetHeight);
+                    }
+                })(i);
+            }
+            function wheelfunc(down) {
+                if (isInScroll) {
+                    return;
+                }
+                if (down && iNow != aSection.length - 1) {
+                    iNow++;
+                } else if (!down && iNow != 0) {
+                    iNow--;
+                } else {
+                    return;
+                }
+                if (iNow == 0) {
+                    oTitle.classList.remove('title2');
+                } else {
+                    oTitle.classList.add('title2');
+                }
+                if (iNow == 3) {
+                    clearSelfInfo(oUl);
+                }
+                moveScroll(oBox, iNow * aSection[0].offsetHeight, function () {
+                    if (iNow == 3) {
+                        displaySelfInfo(oUl, selfstr);
+                    }
+                });
+                moveLeftNav(oLeftLi, iNow * oLeftLi.offsetHeight);
+            }
+
+            addWheel(oBox, wheelfunc);
+
+            ;
+            (function () {
+                var arrpicaddress = [{site: 'website/mjuhuasuan/juhuasuan.html', src: 'img2/1.jpg'},
+                    {site: 'website/mguoke/guoke.html', src: 'img2/2.jpg'},
+                    {site: 'http://hm114.com.cn/hmydyx/hongma/web/index.html', src: 'img2/3.jpg'},
+                    {site: 'http://hm114.com.cn/hmydyx/zhiwen/web/index.html', src: 'img2/4.jpg'},
+                    {site: 'http://hm114.com.cn/hmydyx/huiliu/web/index.html', src: 'img2/5.jpg'},
+                    {site: 'http://hm114.com.cn/hmydyx/huazhiteng/web/index.html', src: 'img2/6.jpg'},
+                    {site: 'website/mweizhibo/index.html', src: 'img2/7.jpg'}];
+                var oStaticUl = document.querySelector('.staticul');
+                var aStaticLi = document.querySelectorAll('.staticul li');
+                var aStaticBoxI = document.querySelectorAll('.staticbox i');
+                for (var i = 0; i < aStaticBoxI.length; i++) {
+                    aStaticBoxI[i].index = i;
+                    aStaticBoxI[i].onclick = function () {
+                        oStaticUl.style.left = -this.index * aStaticLi[0].offsetWidth + 'px';
+                    };
+                }
+
+                var oRoundUl = document.querySelector('.roundul');
+                var N = arrpicaddress.length;
+                for (var i = 0; i < N; i++) {
+                    var oLi = document.createElement('li');
+                    oLi.innerHTML = '<a href="' + arrpicaddress[i].site + '" target="_blank"><img src="' + arrpicaddress[i].src + '" width="133" height="200" /></a>';
+                    oRoundUl.appendChild(oLi);
+                }
+                var aLi = oRoundUl.children;
+                for (var i = 0; i < N; i++) {
+                    aLi[i].style.WebkitTransition = '1s all ease ' + (N - i) * 300 + 'ms';
+                    ;
+                    (function (index) {
+                        setTimeout(function () {
+                            aLi[index].style.WebkitTransform = 'rotateY(' + 360 / N * index + 'deg) translateZ(350px)';
+                        }, 1);
+                    })(i);
+                }
+
+                var iSpeedX = 0;
+                var iSpeedY = 0;
+                var lastX = 0;
+                var lastY = 0;
+                var x = 0;
+                var y = 0;
+                var timer = null;
+                oRoundUl.onmousedown = function (ev) {
+                    clearInterval(timer);
+                    var disX = ev.pageX - y;
+                    var disY = ev.pageY - x;
+                    document.onmousemove = function (ev) {
+                        y = ev.pageX - disX;
+                        x = ev.pageY - disY;
+                        oRoundUl.style.WebkitTransform = 'perspective(800px) rotateX(' + -x / 5 + 'deg) rotateY(' + y / 5 + 'deg)';
+
+                        iSpeedX = ev.pageX - lastX;
+                        iSpeedY = ev.pageY - lastY;
+                        lastX = ev.pageX;
+                        lastY = ev.pageY;
+                    };
+                    document.onmouseup = function () {
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+
+                        clearInterval(timer);
+                        timer = setInterval(function () {
+                            iSpeedX *= 0.95;
+                            iSpeedY *= 0.95;
+                            y += iSpeedX;
+                            x += iSpeedY;
+                            oRoundUl.style.WebkitTransform = 'perspective(800px) rotateX(' + -x / 5 + 'deg) rotateY(' + y / 5 + 'deg)';
+
+                            if (Math.abs(iSpeedX) < 1) {
+                                iSpeedX = 0;
+                            }
+                            if (Math.abs(iSpeedY) < 1) {
+                                iSpeedY = 0;
+                            }
+                            if (iSpeedX == 0 && iSpeedY == 0) {
+                                clearInterval(timer);
+                            }
+                        }, 30);
+                    };
+                    return false;
+                };
+            })();
+
+            ;
+            (function () {
+                var oPrev = document.querySelector('.prev3d');
+                var oNext = document.querySelector('.next3d');
+                var oCurr = document.querySelector('.curr3d');
+                var oBox = document.querySelector('.box3d');
+                var aLi = oBox.children;
+                var arrlink = [{src: "img2/pc0.jpg", link: "website/pcxiaomi/xiaomi.html"},
+                    {src: "img2/pc1.jpg", link: "http://zswhcyrc.3223.net/"},
+                    {src: "img2/pc2.jpg", link: "http://www.lhcmw.com/"},
+                    {src: "img2/pc3.jpg", link: "http://tshuilong.com/"},
+                    {src: "img2/pc4.jpg", link: "http://www.dyhlmd.com/"},
+                    {src: "img2/pc5.jpg", link: "http://www.muzuowang.com/"}];
+
+                var aClass = [];
+                for (var i = 0; i < aLi.length; i++) {
+                    aClass[i] = aLi[i].className;
+                }
+                tab();
+                var bOk = false;
+
+                oNext.onclick = function () {
+
+                    if (bOk) {
+                        return;
+                    }
+                    bOk = true;
+                    aClass.unshift(aClass.pop());
+                    tab();
+                };
+                oPrev.onclick = function () {
+                    if (bOk) {
+                        return;
+                    }
+                    bOk = true;
+                    aClass.push(aClass.shift());
+                    tab();
+                };
+
+                function tab() {
+                    for (var i = 0; i < aLi.length; i++) {
+                        aLi[i].className = aClass[i];
+                        var oImg = aLi[i].querySelector('img');
+                        oImg.src = arrlink[i].src;
+                        if (aClass[i] == 'cur') {
+                            oCurr.href = arrlink[i].link;
+                        }
+                    }
+                    var oCur = document.querySelector('.cur');
+
+                    function tranEnd() {
+                        oCur.removeEventListener('transitionend', tranEnd, false);
+                        bOk = false;
+                    }
+
+                    oCur.addEventListener('transitionend', tranEnd, false);
+                }
+            })();
+
+            ;
+            (function () {
+                function through(obj) {
+                    var oS = obj.children[0];
+
+                    //弧度转角度
+                    function a2d(n) {
+                        return n * 180 / Math.PI;
+                    }
+
+                    //                    function getPos(obj){
+                    //                        var x = 0,
+                    //                              y = 0;
+                    //                        while(obj){
+                    //                            x += obj.offsetLeft;
+                    //                            y += obj.offsetTop;
+                    //                            obj = obj.offsetParent;
+                    //                        }
+                    //                        return {left:x, top:y};
+                    //                    }
+                    function hoverDir(obj, ev) {
+                        var x = obj.offsetLeft + obj.offsetWidth / 2 + reviseX - ev.clientX;
+                        var y = obj.offsetTop + obj.offsetHeight / 2 + reviseY - ev.clientY;
+                        //alert(x + ' ' + y + ' ' + Math.round((a2d(Math.atan2(y,x))+180)/90)%4);
+                        return Math.round((a2d(Math.atan2(y, x)) + 180) / 90) % 4;
+                    }
+
+                    obj.onmouseover = function (ev) {
+                        var oEvent = ev || event;
+                        var oFrom = oEvent.fromElement || oEvent.relatedTarget;
+                        if (obj.contains(oFrom)) {
+                            return;
+                        }
+                        var dir = hoverDir(obj, oEvent);
+                        switch (dir) {
+                            case 0 :
+                                oS.style.left = '200px';
+                                oS.style.top = '0px';
+                                break;
+                            case 1 :
+                                oS.style.left = '0px';
+                                oS.style.top = '200px';
+                                break;
+                            case 2 :
+                                oS.style.left = '-200px';
+                                oS.style.top = '0px';
+                                break;
+                            case 3 :
+                                oS.style.left = '0px';
+                                oS.style.top = '-200px';
+                                break;
+                        }
+                        move(oS, {left: 0, top: 0}, {duration: 300});
+                    };
+
+                    obj.onmouseout = function (ev) {
+                        var oEvent = ev || event;
+                        var oTo = oEvent.toElement || oEvent.relatedTarget;
+                        if (obj.contains(oTo)) {
+                            return;
+                        }
+                        var dir = hoverDir(obj, oEvent);
+                        switch (dir) {
+                            case 0:
+                                move(oS, {left: 200, top: 0}, {duration: 300});
+                                break;
+                            case 1:
+                                move(oS, {left: 0, top: 200}, {duration: 300});
+                                break;
+                            case 2:
+                                move(oS, {left: -200, top: 0}, {duration: 300});
+                                break;
+                            case 3:
+                                move(oS, {left: 0, top: -200}, {duration: 300});
+                                break;
+                        }
+                    };
+                }
+
+                var oUl = document.getElementById('wallul');
+                var reviseX = oUl.offsetLeft;
+                var reviseY = oUl.offsetTop;
+                var aLi = oUl.children;
+                for (var i = 0; i < aLi.length; i++) {
+                    through(aLi[i]);
+                }
+            })();
+
+            function displaySelfInfo(oUl, arrstr) {
+                for (var i = 0; i < arrstr.length; i++) {
+                    var str = arrstr[i];
+                    var oLi = document.createElement('li');
+                    for (var j = 0; j < str.length; j++) {
+                        var oSpan = document.createElement('span');
+                        oSpan.innerHTML = str.charAt(j);
+                        oLi.appendChild(oSpan);
+                    }
+                    oUl.appendChild(oLi);
+                }
+                var aSpan = oUl.getElementsByTagName('span');
+                for (var i = 0; i < aSpan.length; i++) {
+                    (function (index) {
+                        aSpan[index].timer = setTimeout(function () {
+                            move(aSpan[index], {opacity: 1});
+                        }, 200 * i);
+                    })(i);
+                }
+            }
+
+            function clearSelfInfo(oUl) {
+                var aLi = oUl.children;
+                var aSpan = oUl.getElementsByTagName('span');
+                for (var i = 0; i < aSpan.length; i++) {
+                    aSpan[i] = null;
+                    clearTimeout(aSpan[i].timer);
+                }
+                var length = aLi.length;
+                for (var i = 0; i < length; i++) {
+                    oUl.removeChild(aLi[0]);
+                }
+            }
+        };
     </script>
 </head>
 <body>
